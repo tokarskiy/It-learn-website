@@ -1,0 +1,157 @@
+﻿
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <title>@ViewBag.Title</title>
+
+    <script src="@Url.Content("bootstrap.js")"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!--<link rel="stylesheet" type="text/css" href="modal-contact-form.css" />-->
+    <link href="@Url.Content("~/Content/bootstrap-theme.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+</head>
+<body>
+    <div class="site">
+        <header>
+            <div class="container-fluid">
+                <div class="headertop row">
+                    <div class="col-md-6 col-sm-6 hidden-xs">
+                        <a href="#" class="topmenu">Сообщество </a>
+                        <a href="#" class="topmenu">Партнеры </a>
+                        <a href="#" class="topmenu">Магазин </a>
+                    </div>
+                    <!--<div class = "col-md-6"></div>-->
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        @if (Session["UserName"] != null)
+                        {
+                            <a href="#" class="topmenu topmenu-right">Выход </a>
+                            
+                        }
+                        else
+                        {
+                            <a href="@Url.Content("~/Account/Register")" class="topmenu topmenu-right" id="show">Регистрация</a>
+                            <a href="@Url.Content("~/Account/Login")" class="topmenu topmenu-right">Вход </a>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand font-icon" href="@Url.Content("~")">{IT-learn}</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav"></ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодинг</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">HTML</a></li>
+                                    <li><a href="#">CSS</a></li>
+                                    <li><a href="#">JavaScript</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Операционные системы</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Windows</a></li>
+                                    <li><a href="#">Linux</a></li>
+                                    <li><a href="#">Обзор популярных ОС</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Программы</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Adobe Photoshop</a></li>
+                                    <li><a href="#">Microsoft Office</a></li>
+                                </ul>
+                            </li>
+                            @if (Session["UserName"] != null)
+                            {
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><b>@Session["UserName"]</b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Написать статью</a></li>
+                                        <li><a href="#">Мои статьи</a></li>
+                                    </ul>
+                                </li>
+                            }
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        @RenderBody();
+
+        <footer>
+            <div class="container-fluid">
+                <div class="socialnetworks row">
+                    <div class="col-md-2 col-md-offset-7 col-sm-6">
+                        <p>Мы в социальных сетях</p>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <a href="#"><img src="@Url.Content("~/img/TW.png")" width="32" height="32" alt="Twitter" /></a>
+                        <a href="#"><img src="@Url.Content("~/img/VK.png")" width="32" height="32" alt="VK" /></a>
+                        <a href="#"><img src="@Url.Content("~/img/FB.png")" width="32" height="32" alt="Facebook" /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="footermenu row">
+                    <div class="col-md-3 col-md-offset-3 col-sm-6 col-xs-12">
+                        <section>
+                            <h3>Загрузки</h3>
+                            <ul>
+                                <li><a href="#">Материалы к урокам</a></li>
+                                <li><a href="#">Програмное обеспечение</a></li>
+                                <li><a href="#">Бесплатная литература</a></li>
+                                <li><a href="#">Прочее</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <section>
+                            <h3>Обратная связь</h3>
+                            <ul>
+                                <li><a href="#">Контактная информация</a></li>
+                                <li><a href="#">ВКонтакте</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Facebook</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="copyright">
+                    <p>&copy; «IT-learn», 2015 Уроки по информационным технологиям</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+</body>
+</html>

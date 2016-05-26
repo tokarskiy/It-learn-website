@@ -1,0 +1,64 @@
+﻿
+
+@model IEnumerable<ItLearn.Models.ArticlePreview>
+
+@{
+    ViewBag.Title = "{IT-learn}";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 hidden-xs">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li class="active" data-target="#carousel" data-slide-to="0"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="@Url.Content("~/img/3.jpg")" class="img-responsitive center-block" alt="">
+                        <div class="carousel-caption">
+                            <h2>Добро пожаловать на IT-learn</h2>
+                            <p>Здесь вы найдете уроки у обучающие материалы по IT</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="@Url.Content("~/img/5.jpg")" class="img-responsitive center-block" alt="">
+                        <div class="carousel-caption">
+                            <h2>IT-learn - новый сайт</h2>
+                            <p>Расскажите о нас друзьям!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#carousel" class="left carousel-control" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a href="#carousel" class="right carousel-control" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container ArticleContents">
+    <div class = "popular">
+        @foreach (var article in Model)
+        {
+            <div class="col-md-4 col-sm-6 col-xs-12 block">
+                <h2>@article.Name</h2>
+                <figure>
+                    <img src=@Url.Content("~/img/4.jpg") alt="@article.Name Image" class="img-responsive" />
+                    <figcaption>
+                        <p>
+                            @article.Summary<br /><br />
+                            <a href = "@Url.Action(article.Name, "Article/Read", null)">Подробнее ></a>
+                        </p><br />
+                    </figcaption>
+                </figure>
+            </div>
+        }
+    </div>
+</div>

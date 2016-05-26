@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+@model ItLearn.Models.UserLogin
+
+<div class="container ArticleContents">
+    <!--<div class = "popular">-->
+    <div class="col-md-6 col-md-offset-6 col-sm-12 col-xs-12">
+        <h2>Вход</h2>
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <text>Имя:    </text> @Html.TextBoxFor(r => r.Name, new { Class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Name)<br />
+            <text>Пароль: </text> @Html.PasswordFor(r => r.Password, new { Class = "form-control"})
+            @Html.ValidationMessageFor(r => r.Password)<br />
+            <input type="submit" value="Войти" class = "btn btn-default" />
+        }
+    </div>
+</div>

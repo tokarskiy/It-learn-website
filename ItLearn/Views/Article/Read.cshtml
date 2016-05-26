@@ -1,0 +1,18 @@
+﻿
+@model ItLearn.Models.Article
+
+@{
+    ViewBag.Title = $"{Model.Name} - {{IT-learn}}";
+}
+
+<div class="container ArticleContents">
+    <!--<div class = "popular">-->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <h2>@Model.Name</h2>
+        <p>Автор: @Model.Author</p><br />
+        <p>@Model.Contents</p>
+
+        @Html.Partial("_Disqus")
+    </div>
+    <!--</div>-->
+</div>

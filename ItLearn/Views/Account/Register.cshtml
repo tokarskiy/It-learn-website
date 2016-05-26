@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Регистрация";
+}
+
+@model ItLearn.Models.RegistrationModel
+
+<div class="container ArticleContents">
+    <!--<div class = "popular">-->
+    <div class="col-md-6 col-md-offset-6 col-sm-12 col-xs-12">
+        <h2>Регистрация</h2>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            <text>Имя:</text> @Html.TextBoxFor(r => r.Name, new { Class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Name)<br />
+            <text>Электронная почта: </text> @Html.TextBoxFor(r => r.Email, new { Class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Email)<br />
+            <text>Страна: </text>
+            
+            @Html.DropDownListFor(r => r.Country,
+                   new SelectList(ItLearn.Models.DatabaseConnection.GetInstance().GetCountries()),
+                   "-- Select country --",
+                   new { @class = "form-control" })<br />
+            <text>Пароль: </text> @Html.PasswordFor(r => r.Password, new { Class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Password)<br />
+            <text>Повторите пароль: </text> @Html.PasswordFor(r => r.DPassword, new { Class = "form-control" })
+            @Html.ValidationMessageFor(r => r.DPassword)<br />
+            <input type="submit" value="Зарегистрироваться" class = "btn btn-default"/>
+        }
+    </div>
+</div>

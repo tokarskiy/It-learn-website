@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Написать статью";
+}
+
+@model ItLearn.Models.Article
+
+<div class="container ArticleContents">
+    <!--<div class = "popular">-->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <h2>Написать статью</h2>
+        @using (Html.BeginForm("Write", "Article", FormMethod.Post))
+        {
+            <text>Название статьи </text><br /> 
+            @Html.TextBoxFor(r => r.Name) <br />
+            <text>Описание статьи </text><br />
+            @Html.TextBoxFor(r => r.Summary) <br />
+            <text>Содержимое статьи </text> <br />
+            @Html.TextBoxFor(r => r.Contents) <br />
+            <input type="submit" value="Написать" />
+        }
+    </div>
+</div>
